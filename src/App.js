@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
+import './App.css'
+import Nav from './Nav/Nav.js'
+import Footer from './Footer/Footer.js'
+import LandingPage from './LandingPage/LandingPage.js'
+import Projects from './Projects/Projects.js'
+import AboutMe from './AboutMe/AboutMe.js'
+import Resume from './Resume/Resume.js'
+import TechWriting from './TechWriting/TechWriting.js'
+import NotFound from './NotFound/NotFound.js'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <section className='routes'>
+        <Switch>
+          <Route exact path = '/' component = {LandingPage} />
+          <Route path='/about' component={AboutMe} />
+          <Route path='/projects' component = {Projects} />
+          <Route path='/resume' component = {Resume} />
+          <Route path='/writing' component = {TechWriting} />
+          <Route component={NotFound} />
+        </Switch>
+      </section>
     </div>
   );
 }
